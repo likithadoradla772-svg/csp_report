@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ]
     }
   ];
-  const outcomeCategory = document.getElementById("outcomeCategory");
+const outcomeCategory = document.getElementById("outcomeCategory");
   const outcomeSearch = document.getElementById("outcomeSearch");
   const resetOutcomeBtn = document.getElementById("resetOutcomeBtn");
   const outcomeOutput = document.getElementById("outcomeOutput");
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .filter(item => selectedCat === "all" || item.category === selectedCat)
       .map(item => {
         const matchingPoints = item.points.filter(
-          pt => !query || pt.toLowerCase().includes(query) || item.title.toLowerCase().includes(query)
+          pt => !query  pt.toLowerCase().includes(query)  item.title.toLowerCase().includes(query)
         );
         return { ...item, points: matchingPoints };
       })
