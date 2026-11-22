@@ -72,14 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
       weekOutput.innerHTML = "<p>No matching weekly summaries found. Try clearing the search filter.</p>";
       return;
     }
-   weekOutput.innerHTML = filtered
-  .map(item => `<div style="margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e0e0e0;">
-      <h4 style="margin-bottom: 0.3rem; color: #1b5e20;">${item.title}</h4>
-      <p style="margin: 0.25rem 0;"><strong>Activities:</strong> ${item.summary}</p>
-      <p style="margin: 0.25rem 0;"><strong>Learning Outcome:</strong> ${item.outcome}</p>
-    </div>`
-  )
-  .join("");
+
+    weekOutput.innerHTML = filtered
+      .map(item => `<div style="margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e0e0e0;">
+          <h4 style="margin-bottom: 0.3rem; color: #1b5e20;">${item.title}</h4>
+          <p style="margin: 0.25rem 0;"><strong>Activities:</strong> ${item.summary}</p>
+          <p style="margin: 0.25rem 0;"><strong>Learning Outcome:</strong> ${item.outcome}</p>
+        </div>`)
+      .join("");
   }
 
   if (weekSelector) weekSelector.addEventListener("change", renderWeeks);
@@ -149,7 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
       ]
     }
   ];
-const outcomeCategory = document.getElementById("outcomeCategory");
+
+  const outcomeCategory = document.getElementById("outcomeCategory");
   const outcomeSearch = document.getElementById("outcomeSearch");
   const resetOutcomeBtn = document.getElementById("resetOutcomeBtn");
   const outcomeOutput = document.getElementById("outcomeOutput");
@@ -162,9 +163,9 @@ const outcomeCategory = document.getElementById("outcomeCategory");
     const filtered = outcomeData
       .filter(item => selectedCat === "all" || item.category === selectedCat)
       .map(item => {
-      const matchingPoints = item.points.filter(pt =>
-  !query || pt.toLowerCase().includes(query) || item.title.toLowerCase().includes(query)
-);
+        const matchingPoints = item.points.filter(pt =>
+          !query || pt.toLowerCase().includes(query) || item.title.toLowerCase().includes(query)
+        );
         return { ...item, points: matchingPoints };
       })
       .filter(item => item.points.length > 0);
@@ -174,15 +175,14 @@ const outcomeCategory = document.getElementById("outcomeCategory");
       return;
     }
 
-   outcomeOutput.innerHTML = filtered
-  .map(item => `<div style="margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e0e0e0;">
-      <h4 style="margin-bottom: 0.4rem; color: #1b5e20;">${item.title}</h4>
-      <ul class="clean-list">
-        ${item.points.map(pt => `<li>${pt}</li>`).join("")}
-      </ul>
-    </div>`
-  )
-  .join("");
+    outcomeOutput.innerHTML = filtered
+      .map(item => `<div style="margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e0e0e0;">
+          <h4 style="margin-bottom: 0.4rem; color: #1b5e20;">${item.title}</h4>
+          <ul class="clean-list">
+            ${item.points.map(pt => `<li>${pt}</li>`).join("")}
+          </ul>
+        </div>`)
+      .join("");
   }
 
   if (outcomeCategory) outcomeCategory.addEventListener("change", renderOutcomes);
