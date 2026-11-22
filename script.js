@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (filtered.length === 0) {
-      weekOutput.innerHTML = <p>No matching weekly summaries found. Try clearing the search filter.</p>;
+      weekOutput.innerHTML = `<p>No matching weekly summaries found. Try clearing the search filter.</p>`;
       return;
     }
     weekOutput.innerHTML = filtered
