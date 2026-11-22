@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Photo Gallery Toggle
   const togglePhotosBtn = document.getElementById("togglePhotosBtn");
   const photoGalleryContainer = document.getElementById("photoGalleryContainer");
 
@@ -10,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. Weekly Summaries Data (Weeks 1–6)
   const weeklyData = [
     {
       week: "1",
@@ -82,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
           <p style="margin: 0.25rem 0;"><strong>Activities:</strong> ${item.summary}</p>
           <p style="margin: 0.25rem 0;"><strong>Learning Outcome:</strong> ${item.outcome}</p>
         </div>
-      
       )
       .join("");
   }
@@ -97,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 3. Outcomes, Problems & Action Plans Data
   const outcomeData = [
     {
       category: "outcomes",
@@ -189,7 +185,6 @@ const outcomeCategory = document.getElementById("outcomeCategory");
             ${item.points.map(pt => <li>${pt}</li>).join("")}
           </ul>
         </div>
-      
       )
       .join("");
   }
@@ -204,7 +199,6 @@ const outcomeCategory = document.getElementById("outcomeCategory");
     });
   }
 
-  // Initial render on page load
   renderWeeks();
   renderOutcomes();
 });
